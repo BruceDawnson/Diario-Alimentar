@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310B981'%3E%3Cpath d='M14.25 2.25a.75.75 0 00-1.5 0V3h-1.5V2.25a.75.75 0 00-1.5 0V3h-1.5V2.25a.75.75 0 00-1.5 0V3H6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 006 21h12a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0018 3h-1.5V2.25a.75.75 0 00-1.5 0V3h-0.75V2.25z' /%3E%3Cpath fill-rule='evenodd' d='M9.44 12.022a.75.75 0 01.06-1.06 4.5 4.5 0 015.903-1.066 4.501 4.501 0 014.285 5.216.75.75 0 11-1.442.433 3.001 3.001 0 00-5.04-3.045.75.75 0 01-1.06-.06 3 3 0 00-3.765 3.311.75.75 0 01-1.442-.434A4.501 4.501 0 019.44 12.022z' clip-rule='evenodd' /%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diário de Alimentação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Aplica o tema escuro/claro imediatamente para evitar FOUC (Flash of Unstyled Content)
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+
+      tailwind.config = {
+        darkMode: 'class', // Habilita o modo escuro baseado em classe
+        theme: {
+          extend: {
+             fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: {
+                DEFAULT: '#10B981', // Emerald 500
+                focus: '#059669', // Emerald 600
+                content: '#ffffff',
+              },
+              secondary: {
+                DEFAULT: '#64748B', // Slate 500
+                focus: '#475569', // Slate 600
+                content: '#ffffff',
+              },
+              base: {
+                100: '#ffffff', // white
+                200: '#f8fafc', // slate-50
+                300: '#f1f5f9', // slate-100
+                400: '#e2e8f0', // slate-200
+                content: '#0f172a', // slate-900
+              },
+              // Cores para o modo escuro
+              dark: {
+                primary: {
+                  DEFAULT: '#34D399', // Emerald 400
+                  focus: '#10B981', // Emerald 500
+                  content: '#0f172a',
+                },
+                secondary: {
+                  DEFAULT: '#94A3B8', // Slate 400
+                  focus: '#CBD5E1', // Slate 300
+                  content: '#1e293b',
+                },
+                base: {
+                  100: '#0f172a', // Slate 900
+                  200: '#1e293b', // Slate 800
+                  300: '#334155', // Slate 700
+                  400: '#475569', // Slate 600
+                  content: '#e2e8f0', // Slate 200
+                },
+              }
+            },
+            animation: {
+                'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+             },
+             keyframes: {
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+             }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "remarkable": "https://aistudiocdn.com/remarkable@^2.0.1",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js",
+    "firebase/analytics": "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.5.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-base-200 dark:bg-dark-base-100 text-base-content dark:text-dark-base-content font-sans transition-colors duration-300 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

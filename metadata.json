@@ -1,0 +1,5 @@
+{
+  "name": "Diário de Alimentação",
+  "description": "Um diário alimentar inteligente que usa a API Gemini para analisar suas refeições, estimar calorias e fornecer feedback nutricional para ajudá-lo a atingir seus objetivos de saúde.",
+  "requestFramePermissions": []
+}
